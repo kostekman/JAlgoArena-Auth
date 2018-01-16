@@ -4,7 +4,7 @@ logging:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URL:http://localhost:5000/eureka/}
+      defaultZone: ${EUREKA_URL:http://172.17.0.2:5000/eureka/}
 
 server:
   port: ${PORT:9999}
