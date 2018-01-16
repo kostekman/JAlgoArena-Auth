@@ -4,7 +4,7 @@ logging:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URL:http://172.17.0.2:5000/eureka/}
+      defaultZone: https://jalgoarena-eureka-koscinsa.herokuapp.com/eureka/
 
 server:
   port: ${PORT:9999}
@@ -18,7 +18,7 @@ spring:
   profiles: heroku
 eureka:
   instance:
-    hostname: ${APP_NAME:jalgoarena-auth}.herokuapp.com
+    hostname: ${APP_NAME:jalgoarena-auth-koscinsa}.herokuapp.com
     nonSecurePort: 80
 logging:
   level:
