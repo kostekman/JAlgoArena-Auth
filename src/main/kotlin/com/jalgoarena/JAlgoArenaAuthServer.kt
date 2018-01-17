@@ -1,5 +1,6 @@
 package com.jalgoarena
 
+import com.google.common.collect.Lists
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.EnableConfigurationProperties
@@ -31,7 +32,7 @@ open class JAlgoArenaAuthServer {
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build()
-                .securitySchemes(apiKey())
+                .securitySchemes(Lists.newArrayList(apiKey()))
     }
 
     private fun apiKey(): ApiKey {
