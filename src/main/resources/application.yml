@@ -4,7 +4,7 @@ logging:
 eureka:
   client:
     serviceUrl:
-      defaultZone: https://jalgoarena-eureka-koscinsa.herokuapp.com/eureka/
+      defaultZone: ${EUREKA_URL:https://jalgoarena-eureka-koscinsa.herokuapp.com/eureka/}
 
 server:
   port: ${PORT:9999}
