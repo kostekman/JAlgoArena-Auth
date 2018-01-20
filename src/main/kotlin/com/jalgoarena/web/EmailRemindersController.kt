@@ -12,6 +12,6 @@ class EmailRemindersController(@Inject private val repository: UsersRepository,
 
     @GetMapping("/sendEmails", produces = arrayOf("application/json"))
     fun sendEmails() = repository.findAll().map {
-        user -> emailSender.sendMessage(user.email, "test")
+        user -> emailSender.sendMessage(user.email)
     }
 }

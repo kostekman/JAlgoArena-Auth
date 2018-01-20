@@ -1,43 +1,35 @@
 package com.jalgoarena.email
 
+import com.google.common.collect.ImmutableList
+import com.jalgoarena.data.ProblemsRepository
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration
-import org.springframework.context.annotation.Bean
 import org.springframework.mail.SimpleMailMessage
-import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.JavaMailSenderImpl
 import org.springframework.stereotype.Component
 import java.util.*
+import javax.inject.Inject
 
 @Component
-class EmailSender(@Autowired private val mailSender: JavaMailSenderImpl){
+class EmailSender(@Autowired private val mailSender: JavaMailSenderImpl,
+                  @Inject private val problemsRepository: ProblemsRepository){
 
-/*    @Bean
-    fun getJavaMailSender() : JavaMailSender{
-        val mailSender = JavaMailSenderImpl();
-        mailSender.host = "smtp.gmail.com";
-        mailSender.port = 587;
+    fun sendMessage(to : String) : String{
+        val problems = problemsRepository.findAll()
+        val random = Random().nextInt(problems.size)
 
-        mailSender.username = "my.gmail@gmail.com";
-        mailSender.password = "password"
+        val problem = problems[random].title
 
-    val props = mailSender.javaMailProperties
-    props.put("mail.transport.protocol", "smtp")
-    props.put("mail.smtp.auth", "true")
-    props.put("mail.smtp.starttls.enable", "true")
-    props.put("mail.debug", "true")
 
-    return mailSender
-    }*/
-
-    fun sendMessage(to : String, problem : String){
         val message = SimpleMailMessage()
-        message.to(to)
+        message.to = ImmutableList.of(to).toTypedArray()
+        message.from ="jalgoarena@gmail.com"
         message.subject = "Your daily JAlgoArena problem"
-        message.text = "Hi,\n\tHave you checked JAlgoArena yet today?\nWe've got a problem" +
-                "for you to check out: " + problem + "\n\tYour AJalgoArena crew"
+        message.text = "Hi,\n\tHave you checked JAlgoArena yet today?\n\tWe've got a problem" +
+                " for you to check out:\n\t" + problem + "\n\n\tRegards,\n\tYour AJalgoArena crew"
 
         mailSender.send(message)
+
+        return to
     }
 
 }
