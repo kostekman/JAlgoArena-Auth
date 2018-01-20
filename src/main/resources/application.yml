@@ -16,6 +16,17 @@ jalgoarena.security.jwt:
 ---
 spring:
   profiles: heroku
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: jalgoarenatest@gmail.com
+    password: jalgoarena
+    properties:
+      mail:
+        smtp:
+          auth = true
+          starttls:
+            enable = true
 eureka:
   instance:
     hostname: ${APP_NAME:jalgoarena-auth-koscinsa}.herokuapp.com

@@ -49,6 +49,7 @@ dependencies {
             "org.springframework.boot:spring-boot-starter-web",
             "org.springframework.boot:spring-boot-starter-actuator",
             "org.springframework.boot:spring-boot-starter-security",
+            "org.springframework.boot:spring-boot-starter-mail",
             'org.springframework.cloud:spring-cloud-starter-eureka',
             'org.springframework.security:spring-security-config',
             "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
