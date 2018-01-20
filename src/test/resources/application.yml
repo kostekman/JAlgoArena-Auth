@@ -1,3 +1,13 @@
 eureka:
   client:
     enabled: false
+
+spring:
+    mail:
+       host: smtp.gmail.com
+       port: 587
+       username: jalgoarenatest@gmail.com
+       password: jalgoarena
+       properties.mail.smtp:
+                 auth: true
+                 starttls.enable: true

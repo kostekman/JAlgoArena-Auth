@@ -6,6 +6,7 @@ import com.jalgoarena.data.UsernameIsAlreadyUsedException
 import com.jalgoarena.data.UsersRepository
 import com.jalgoarena.domain.Role
 import com.jalgoarena.domain.User
+import com.jalgoarena.email.EmailSender
 import com.jalgoarena.security.auth.JwtAuthenticationProvider
 import com.jalgoarena.security.token.JwtAuthenticationToken
 import com.jalgoarena.security.config.JwtSettings

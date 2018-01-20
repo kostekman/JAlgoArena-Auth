@@ -4,7 +4,7 @@ logging:
 eureka:
   client:
     serviceUrl:
-      defaultZone: https://jalgoarena-eureka-koscinsa.herokuapp.com/eureka/
+      defaultZone: ${EUREKA_URL:https://jalgoarena-eureka-koscinsa.herokuapp.com/eureka/}
 
 server:
   port: ${PORT:9999}
@@ -14,19 +14,18 @@ jalgoarena.security.jwt:
   tokenIssuer: jalgoarena.com
   tokenSigningKey: U9FdVDcRlKRV+WDzSOCmdeKkhR9MWANj1Ksti9GiXPdzgyL4LBGhFLvzDxOkJDg/JvD65s3rbcUda757Re4uAA==
 ---
+
 spring:
-  profiles: heroku
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: jalgoarenatest@gmail.com
-    password: jalgoarena
-    properties:
-      mail:
-        smtp:
-          auth = true
-          starttls:
-            enable = true
+    profiles: heroku
+    mail:
+       host: smtp.gmail.com
+       port: 587
+       username: jalgoarenatest@gmail.com
+       password: jalgoarena
+       properties.mail.smtp:
+                 auth: true
+                 starttls.enable: true
+
 eureka:
   instance:
     hostname: ${APP_NAME:jalgoarena-auth-koscinsa}.herokuapp.com

@@ -30,10 +30,10 @@ class UserJsonSerializationTest {
     }
 
     private val USER = User(
-        username = "mikołaj",
+        username = "mikolaj",
         password = "blabla",
         email = "mikolaj@email.com",
-        region = "Kraków",
+        region = "Krakow",
         team = "Tyniec Team",
         role = Role.USER,
         id = "0-0"
@@ -41,10 +41,10 @@ class UserJsonSerializationTest {
 
     @Language("JSON")
     private val USER_JSON = """{
-  "username": "mikołaj",
+  "username": "mikolaj",
   "password": "blabla",
   "email": "mikolaj@email.com",
-  "region": "Kraków",
+  "region": "Krakow",
   "team": "Tyniec Team",
   "role": "USER",
   "id": "0-0"
