@@ -24,8 +24,8 @@ class EmailSender(@Autowired private val mailSender: JavaMailSenderImpl,
         message.to = ImmutableList.of(to).toTypedArray()
         message.from ="jalgoarena@gmail.com"
         message.subject = "Your daily JAlgoArena problem"
-        message.text = "Hi,\n\tHave you checked JAlgoArena yet today?\n\tWe've got a problem" +
-                " for you to check out:\n\t" + problem + "\n\n\tRegards,\n\tYour AJalgoArena crew"
+        message.text = "Hi,\nHave you checked JAlgoArena yet today?\nWe've got a problem" +
+                " for you to check out:\n" + problem + "\n\nRegards,\nYour AJalgoArena crew"
 
         mailSender.send(message)
 
